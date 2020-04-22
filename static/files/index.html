@@ -1,8 +1,19 @@
 <html ng-app="app">
 
 <head>
-	<title ng-bind="state.Stats.Title">SimpleTorrent</title>
+	<title>TorrentFast.net - Search, Stream & Download your torrents directly!</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<meta property="og:site_name" content="torrentfast.net" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://torrentfast.net" />
+	<meta property="og:title" content="TorrentFast.net - Search, Stream & Download!" />
+	<meta property="og:description" content="Enjoy faster speed, no limits when downloading torrents." />
+	<meta property="og:image" content="http://torrentfast.net/og-image.png" />
+	<meta property="og:image:width" content="600" />
+	<meta property="og:image:height" content="600" />.
+	
 	<link rel="stylesheet" type="text/css" href="css/Lato/Lato.css">
 	<link rel="stylesheet" type="text/css" href="css/semantic.min.css">
 	<link rel="stylesheet" type="text/css" href="css/app.css?CLDVER">
@@ -29,9 +40,8 @@
 		<!-- TITLE ===================== -->
 		<div class="title">
 			<h2>
-				<a rel="noreferrer" href="https://github.com/boypt/simple-torrent" target="_blank"
-					ng-init="logoHover = false" ng-mouseover="logoHover = true" ng-mouseleave="logoHover = false">
-					<i class="blue icon" ng-class="{cloud:!logoHover, github: logoHover}"></i> {{ state.Stats.Title }}
+				<a href="https://torrentfast.net">
+					<i class="blue icon cloud"></i> TorrentFast.net
 				</a>
 			</h2>
 			<div class="status">
@@ -39,8 +49,6 @@
 				<i ng-click="toggleSections('rss')" class="ui circular rss square icon"
 					ng-class="{orange: state.LatestRSSGuid != storage.tcRSSGUID, green: $root.omni.mode.rss }"
 					title="RSS List"></i>
-				<i ng-click="toggleSections('config')" ng-class="{green: $root.config.edit}" title="Edit Config"
-					class="ui circular server icon"></i>
 				<i ng-click="toggleSections('omni')" ng-class="{green: $root.omni.edit}" title="Edit Magnet/Torrent"
 					class="ui circular magnet icon"></i>
 				<i class="ui circular lightning icon" title="Connecting Status"
@@ -67,16 +75,13 @@
 		<section class="downloads" ng-controller="DownloadsController" ng-include
 			src="'template/downloads.html?CLDVER'"></section>
 
-		<footer>
+		<footer style="opacity: 1;">
 			<div>
-				<span>
-					<a rel="noreferrer" href="https://github.com/boypt/simple-torrent" target="_blank">SimpleTorrent</a>
-					<span>(based on <a rel="noreferrer" href="https://github.com/anacrolix/torrent"
-							target="_blank">anacrolix/torrent</a>)</span>
+				<span></span>
 					version {{ state.Stats.Version }} - </span>
 				<span ng-if="numKeys(state.Users) > 1">{{ numKeys(state.Users) }} users connected - </span>
 				<span>
-					<a rel="noreferrer" href="https://golang.org" target="_blank">Go</a> {{ state.Stats.Runtime }}
+					<a rel="noreferrer" href="https://torrentfast.net">Go</a> www.torrentfast.net
 				</span>
 			</div>
 			<div>
