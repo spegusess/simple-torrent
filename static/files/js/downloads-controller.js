@@ -82,6 +82,9 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
   $scope.toggle = function() {
     n.$closed = !n.$closed;
   };
+  $scope.canremovable = function() {
+    return $scope.agoHrs(n.Modified) > 12;
+  };
   $scope.icon = function() {
     var c = [];
     if ($scope.isdownloading()) {
