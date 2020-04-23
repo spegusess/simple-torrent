@@ -221,12 +221,11 @@ func (e *Engine) TaskRoutine() {
 		t := e.upsertTorrent(tt)
 
 		// stops task on reaching ratio
-		if e.config.SeedRatio > 0 &&
-			t.SeedRatio > e.config.SeedRatio &&
-			t.Started &&
+		if t.Started &&
 			t.Done {
 			log.Println("[Task Stoped] due to reaching SeedRatio")
-			go e.StopTorrent(t.InfoHash)
+			e.StopTorrent(t.InfoHash)	
+			go e.DeleteTorrent(t.InfoHash)
 		}
 
 		// task started in `DoneCmdThreshold` (default 30s), won't call the DoneCmd below
