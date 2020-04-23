@@ -16,7 +16,7 @@
 </div>
 
 <div ng-if="!isEmpty(state.Torrents) && $expanded" class="ui raised segments">
-  <div ng-repeat="t in state.Torrents | dictValuesArray | orderBy:'AddedAt'" ng-class="{open: t.open}"
+  <div ng-repeat="t in state.Torrents | dictValuesArray | orderBy:'AddedAt':true" ng-class="{open: t.open}"
     class="ui torrent segment">
 
     <div ng-if="!t.Loaded" class="ui active inverted dimmer">
