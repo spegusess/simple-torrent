@@ -1,8 +1,13 @@
 <html ng-app="app">
 
 <head>
-	<title>TorrentFast.net - Search, Stream & Download your torrents directly!</title>
+	<meta charset="utf-8">
+	<meta name="robots" content="index,follow">
+	<meta name="googlebot" content="index">
+	<title>TorrentFast.net - Search, Stream, Watch online & Download!</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="Enjoy faster speed, no limits when downloading torrents.">
+	<link rel="shortcut icon" href="/cloud-favicon.png" />
 	
 	<meta property="og:site_name" content="torrentfast.net" />
 	<meta property="og:locale" content="en_US" />
@@ -17,7 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="css/Lato/Lato.css">
 	<link rel="stylesheet" type="text/css" href="css/semantic.min.css">
 	<link rel="stylesheet" type="text/css" href="css/app.css?CLDVER">
-	<link rel="icon" href="cloud-favicon.png" type="image/x-icon" />
+	
 	<style type="text/css">
 		[ng-cloak] {
 			display: none;
@@ -94,11 +99,9 @@
 
 		<footer style="opacity: 1;">
 			<div>
-				<span></span>
-					version {{ state.Stats.Version }} - </span>
 				<span ng-if="numKeys(state.Users) > 1">{{ numKeys(state.Users) }} users connected - </span>
 				<span>
-					<a rel="noreferrer" href="https://torrentfast.net">Go</a> www.torrentfast.net
+					<a rel="noreferrer" href="https://torrentfast.net">www.torrentfast.net</a>
 				</span>
 			</div>
 			<div>
@@ -157,5 +160,4 @@
 	<script src="js/semantic-checkbox.js?CLDVER"></script>
 	<script src="js/run.js?CLDVER"></script>
 </body>
-
 </html>
