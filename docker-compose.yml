@@ -7,5 +7,5 @@ services:
             - '/path/to/my/downloads:/downloads'
             - '/path/to/my/torrents:/torrents'
             - '/path/to/my/config:/etc/cloud-torrent'
-        image: boypt/cloud-torrent
+        image: sashithacj/simple-torrent
         command: --auth username:password
