@@ -9,6 +9,9 @@
   <div class="header">
     <a ng-if="!isdownloading()" ng-href="download/{{ node.$path }}">{{ node.Name }}</a>
     <span ng-if="isfile() && isdownloading()">{{ node.Name }}</span>
+    
+  </div>
+  <div class="description">
     <span ng-if="!isdownloading()" class="">
       <i ng-show="!confirm && false" ng-click="preremove()" class="red trash icon"></i>
       <i ng-show="!deleting && confirm && false" ng-click="deleting = true; remove();" class="red check icon"></i>
@@ -16,9 +19,7 @@
       <a ng-show="!isdownloading()" ng-href="download/{{ node.$path }}" class="ui label green" style="padding: .3em .7em;"><i class="cloud download icon"></i>Download</a>
       <i ng-show="false && (imagePreview || videoPreview || audioPreview)" ng-click="togglePreview()" class="blue {{ showPreview ? 'circle outline' : 'video play outline' }} icon"></i>
       <a ng-show="imagePreview || videoPreview || audioPreview" ng-click="togglePreview()" class="ui label blue" style="padding: .3em .7em;"><i class="{{ showPreview ? 'circle outline' : 'video play outline' }} icon"></i>Preview</a>
-    </span>
-  </div>
-  <div class="description">{{ node.Size | bytes }} - {{ ago(node.Modified) }}</div>
+    </span>  {{ node.Size | bytes }} - {{ ago(node.Modified) }}</div>
   <div class="preview" ng-if="showPreview">
     <audio ng-if="audioPreview" controls>
       <source ng-src="{{ showPreview ? ('download/'+node.$path) : '' }}">
