@@ -13,7 +13,9 @@
       <i ng-show="!confirm && false" ng-click="preremove()" class="red trash icon"></i>
       <i ng-show="!deleting && confirm && false" ng-click="deleting = true; remove();" class="red check icon"></i>
       <i ng-show="deleting && false" class="grey notched circle loading icon"></i>
-      <i ng-show="imagePreview || videoPreview || audioPreview" ng-click="togglePreview()" class="blue {{ showPreview ? 'circle outline' : 'video play outline' }} icon"></i>
+      <a ng-show="!isdownloading()" ng-href="download/{{ node.$path }}" class="ui label green"><i class="cloud download icon"></i> Download</a>
+      <i ng-show="false && (imagePreview || videoPreview || audioPreview)" ng-click="togglePreview()" class="blue {{ showPreview ? 'circle outline' : 'video play outline' }} icon"></i>
+      <a ng-show="imagePreview || videoPreview || audioPreview" ng-click="togglePreview()" class="ui label blue"><i class="{{ showPreview ? 'circle outline' : 'video play outline' }} icon"></i> Preview</a>
     </span>
   </div>
   <div class="description">{{ node.Size | bytes }} - {{ ago(node.Modified) }}</div>
