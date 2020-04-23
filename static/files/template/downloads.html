@@ -1,8 +1,12 @@
 <div class="ui grid section-header" ng-click="section_expanded_toggle()">
     <div class="column">
-      <i class="square outline icon" ng-class="{minus: !$expanded, plus: $expanded}"></i>
+      <i class="square outline icon" ng-class="{minus: $expanded, plus: !$expanded}"></i>
       <span class="ui header"> 
         Downloads 
+        <span class="ui label">
+          <i class="list icon"></i>
+        {{ numDownloads() }} torrent{{ numDownloads() <= 1 ? '' : 's' }}
+        </span>
         <span class="ui label">
           <i class="hdd icon"></i>
         {{ state.Stats.System.diskFree | bytes }} free
