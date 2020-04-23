@@ -33,7 +33,7 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
     n.$depth = 1;
   }
   var path = (n.$path = pathArray.join("/"));
-  n.$closed = $scope.agoHrs(n.Modified) > 24;
+  n.$closed = true;
   $scope.audioPreview = /\.(mp3|m4a)$/.test(path);
   $scope.imagePreview = /\.(jpe?g|png|gif)$/.test(path);
   $scope.videoPreview = /\.(mp4|mkv|mov)$/.test(path);
