@@ -69,7 +69,7 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
     );
   };
   
-  if($scope.isdownloading && n.$depth = 1) n.$closed = false;
+  if($scope.isdownloading && n.$depth == 1) n.$closed = false;
 
   $scope.preremove = function() {
     $scope.confirm = true;
