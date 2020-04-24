@@ -59,24 +59,8 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
     }
   }
   
-  if(torrents && !$scope.isfile()){
-     for (var ih in torrents) {
-        var torrent = torrents[ih];
-        if (torrent.Name === path) {
-            n.$torrent = torrent;
-            break;
-        }
-     }
-  }
-  
-  $scope.dataname = function() {
-    return (n.$path);
-  };
-  
-  $scope.datatorrent = function() {
-    var dt = "";
-    if(n.$torrent && n.$torrent.Name)dt = n.$torrent.Name;
-    return (dt);
+  $scope.datadepth = function() {
+    return (n.$depth);
   };
 
   $scope.isdownloading = function() {
