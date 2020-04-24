@@ -68,8 +68,6 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
       n.$file.Percent < 100
     );
   };
-  
-  if(n.$torrent && n.$torrent.Loaded && n.$torrent.Started && n.$depth == 1) n.$closed = false;
 
   $scope.preremove = function() {
     $scope.confirm = true;
@@ -86,7 +84,7 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
     n.$closed = !n.$closed;
   };
   $scope.canremovable = function() {
-    return $scope.agoHrs(n.Modified) > 12;
+    return $scope.agoHrs(n.Modified) >= 12;
   };
   $scope.icon = function() {
     var c = [];
