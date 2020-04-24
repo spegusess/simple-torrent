@@ -58,11 +58,6 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
       if (n.$file) break;
     }
   }
-  
-  n.$dirdownloading = false;
-  $scope.isdirdownload = function() {
-    return n.$dirdownloading;
-  };
 
   $scope.isdownloading = function() {
     return (
@@ -74,13 +69,6 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
     );
   };
   
-  if(n.$depth == 2 && $scope.isdownloading){
-     if ($scope.$parent && $scope.$parent.$parent && $scope.$parent.$parent.node) {
-        var parentNode = $scope.$parent.$parent.node;
-        if(!parentNode.$dirdownloading) parentNode.$dirdownloading = true;
-     }
-  }
-
   $scope.preremove = function() {
     $scope.confirm = true;
     $timeout(function() {
@@ -100,7 +88,7 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
   };
   $scope.icon = function() {
     var c = [];
-    if ($scope.isdownloading() || $scope.isdirdownload()) {
+    if ($scope.isdownloading()) {
       c.push("spinner", "loading");
     } else {
       c.push("outline");
