@@ -6,7 +6,7 @@
 <!-- </div> -->
 
 <div class="content">
-  <div class="header" data-depth="{{ datadepth() }}">
+  <div class="header">
     <a ng-if="!isdownloading()" ng-href="download/{{ node.$path }}">{{ node.Name }}</a>
     <span ng-if="isfile() && isdownloading()">{{ node.Name }}</span>
     
