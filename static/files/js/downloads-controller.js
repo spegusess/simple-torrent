@@ -61,8 +61,7 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
   
   $scope.dirdownloading = function() {
     if(n.$depth == 1 && n.Children){
-      for (var c in n.Children) {
-        var cn = c.node;
+      for (var cn in n.Children) {
         if(cn.$torrent && cn.$torrent.Loaded && cn.$torrent.Started && cn.$file && cn.$file.Percent < 100){
            return (true);
         }
