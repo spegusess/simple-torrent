@@ -11,6 +11,10 @@ body {
   padding: 0;
 }
 
+.breall{
+  word-break: break-all !important;	
+}
+
 .cage {
   padding-top: 25px;
   padding-bottom: 40px;
