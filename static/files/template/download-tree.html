@@ -7,11 +7,11 @@
 
 <div class="content">
   <div class="header">
-    <a ng-if="!isdownloading()" ng-href="download/{{ node.$path }}">{{ node.Name }}</a>
-    <span ng-if="isfile() && isdownloading()">{{ node.Name }}</span>
+    <a ng-if="!isdownloading()" ng-href="download/{{ node.$path }}" class="breall">{{ node.Name }}</a>
+    <span ng-if="isfile() && isdownloading()" class="breall">{{ node.Name }}</span>
     
   </div>
-  <div class="description">
+  <div class="description breall">
     <span ng-if="!isdownloading()" class="">
       <a ng-href="download/{{ node.$path }}" class="ui label green" style="padding: .3em .7em;"><i class="cloud download icon"></i>Download</a>
       <a ng-show="isfile() && (imagePreview || videoPreview || audioPreview)" ng-click="togglePreview()" class="ui label blue" style="padding: .3em .7em;"><i class="{{ showPreview ? 'circle outline' : 'video play outline' }} icon"></i>Preview</a>
