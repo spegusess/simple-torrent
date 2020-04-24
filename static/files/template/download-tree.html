@@ -11,7 +11,7 @@
     <span ng-if="isfile() && isdownloading()">{{ node.Name }}</span>
     
   </div>
-  <div class="description">
+  <div class="description" data-name="{{ dataname() }}" data-torrent="{{ datatorrent() }}">
     <span ng-if="!isdownloading()" class="">
       <i ng-show="!confirm && false" ng-click="preremove()" class="red trash icon"></i>
       <i ng-show="!deleting && confirm && false" ng-click="deleting = true; remove();" class="red check icon"></i>
