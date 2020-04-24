@@ -22,7 +22,7 @@
       <a ng-show="isdir() && closed()" ng-click="toggle()" class="ui label" style="padding: .3em .7em;"><i class="folder open icon"></i>Open folder</a>
       <a ng-show="isdir() && !closed()" ng-click="toggle()" class="ui label blue" style="padding: .3em .7em;"><i class="folder icon"></i>Close folder</a>
       <a ng-show="canremovable() && !confirm" ng-click="preremove()" class="ui label red" style="padding: .3em .7em;"><i class="trash icon"></i>Delete</a>
-      <a ng-show="canremovable() && !deleting && confirm" ng-click="deleting = true; remove();" class="ui label red" style="padding: .3em .7em;"><i class="check icon"></i>Confirm delete</a>
+      <a ng-show="canremovable() && !deleting && confirm" ng-click="remove();" class="ui label red" style="padding: .3em .7em;"><i class="check icon"></i>Confirm delete</a>
       <a ng-show="canremovable() && deleting" class="ui label" style="padding: .3em .7em;"><i class="notched circle loading icon"></i>Deleting</a>
     </span>  {{ node.Size | bytes }} - {{ ago(node.Modified) }}</div>
   <div class="preview" ng-if="showPreview">
