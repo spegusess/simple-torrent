@@ -32,7 +32,7 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
     n.$closed = true;
   } else {
     n.$depth = 1;
-    if ($scope.isdownloading())
+    if (n.$torrent.Started)
       n.$closed = false;
     else
       n.$closed = true;
