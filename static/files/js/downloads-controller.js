@@ -100,7 +100,7 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
   };
   $scope.icon = function() {
     var c = [];
-    if ($scope.isdownloading() || $scope.dirdownloading()) {
+    if ($scope.isdownloading() || $scope.isdirdownload()) {
       c.push("spinner", "loading");
     } else {
       c.push("outline");
