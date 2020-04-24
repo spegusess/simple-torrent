@@ -59,8 +59,16 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
     }
   }
   
-  $scope.datadepth = function() {
-    return (n.$depth);
+  $scope.dirdownloading = function() {
+    if(n.$depth == 1 && n.Children){
+      for (var c in n.Children) {
+        var cn = c.node;
+        if(cn.$torrent && cn.$torrent.Loaded && cn.$torrent.Started && cn.$file && cn.$file.Percent < 100){
+           return (true);
+        }
+      }
+    }
+    return (false);
   };
 
   $scope.isdownloading = function() {
@@ -92,7 +100,7 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
   };
   $scope.icon = function() {
     var c = [];
-    if ($scope.isdownloading()) {
+    if ($scope.isdownloading() || $scope.dirdownloading()) {
       c.push("spinner", "loading");
     } else {
       c.push("outline");
