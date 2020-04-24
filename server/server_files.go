@@ -60,6 +60,10 @@ func (s *Server) serveFiles(w http.ResponseWriter, r *http.Request) {
 				a.AddDir(file)
 				a.Close()
 			} else {
+				FileSize := strconv.FormatInt(info.Size(), 10)
+				
+				w.Header().Set("Content-Length", FileSize)
+				w.Header().Set("Content-Disposition", "attachment; filename="+info.Name())
 				http.ServeFile(w, r, file)
 			}
 		case "DELETE":
