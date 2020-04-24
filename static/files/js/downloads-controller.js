@@ -59,15 +59,9 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
     }
   }
   
-  $scope.dirdownloading = function() {
-    if(n.$depth == 1 && n.Children){
-      for (var cn in n.Children) {
-        if(cn.$torrent && cn.$torrent.Loaded && cn.$torrent.Started && cn.$file && cn.$file.Percent < 100){
-           return (true);
-        }
-      }
-    }
-    return (false);
+  n.$dirdownloading = false;
+  $scope.isdirdownload = function() {
+    return n.$dirdownloading;
   };
 
   $scope.isdownloading = function() {
@@ -79,6 +73,13 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
       n.$file.Percent < 100
     );
   };
+  
+  if(n.$depth == 2 && $scope.isdownloading){
+     if ($scope.$parent && $scope.$parent.$parent && $scope.$parent.$parent.node) {
+        var parentNode = $scope.$parent.$parent.node;
+        parentNode.$dirdownloading = true;
+     }
+  }
 
   $scope.preremove = function() {
     $scope.confirm = true;
