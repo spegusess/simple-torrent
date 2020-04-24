@@ -221,7 +221,7 @@ func (e *Engine) TaskRoutine() {
 		t := e.upsertTorrent(tt)
 
 		// stops task on reaching ratio
-		if t.Started &&
+		if t.Loaded && t.Started &&
 			t.Done {
 			log.Println("[Task Stoped] due to reaching SeedRatio")
 			e.StopTorrent(t.InfoHash)	
