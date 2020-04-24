@@ -29,11 +29,16 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
     var parentNode = $scope.$parent.$parent.node;
     pathArray.unshift(parentNode.$path);
     n.$depth = parentNode.$depth + 1;
+    n.$closed = true;
   } else {
     n.$depth = 1;
+    if ($scope.isdownloading())
+      n.$closed = false;
+    else
+      n.$closed = true;
   }
   var path = (n.$path = pathArray.join("/"));
-  n.$closed = true;
+  
   $scope.audioPreview = /\.(mp3|m4a)$/.test(path);
   $scope.imagePreview = /\.(jpe?g|png|gif)$/.test(path);
   $scope.videoPreview = /\.(mp4|mkv|mov)$/.test(path);
