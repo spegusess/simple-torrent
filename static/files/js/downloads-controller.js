@@ -119,6 +119,7 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
   };
 
   $scope.remove = function() {
+    $scope.deleting = true;
     $http.delete("download/" + n.$path);
   };
 
