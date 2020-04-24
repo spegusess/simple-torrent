@@ -77,7 +77,7 @@ app.controller("NodeController", function($scope, $rootScope, $http, $timeout) {
   if(n.$depth == 2 && $scope.isdownloading){
      if ($scope.$parent && $scope.$parent.$parent && $scope.$parent.$parent.node) {
         var parentNode = $scope.$parent.$parent.node;
-        parentNode.$dirdownloading = true;
+        if(!parentNode.$dirdownloading) parentNode.$dirdownloading = true;
      }
   }
 
