@@ -142,7 +142,7 @@ app.factory("bytes", function () {
   return function (bytes) {
     if (bytes == 0) return '0 B';
     var k = 1024,
-      dm = 0,
+      dm = 2,
       sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
       i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
@@ -179,15 +179,6 @@ app.directive("ngEnter", function () {
         });
         event.preventDefault();
       }
-    });
-  };
-});
-
-//TODO remove this hack
-app.directive("jpSrc", function () {
-  return function (scope, element, attrs) {
-    scope.$watch(attrs.jpSrc, function (src) {
-      element.attr("src", src);
     });
   };
 });
